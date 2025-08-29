@@ -18,7 +18,7 @@
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
+:root {
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #212529; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #2d465e; /* Color for headings, subheadings and title throughout the website */
@@ -665,7 +665,7 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 30px 10px;
   scroll-margin-top: 90px;
   overflow: clip;
 }
@@ -683,7 +683,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 10px;
   position: relative;
 }
 
@@ -764,9 +764,23 @@ section,
 }
 
 @media (max-width: 575px) {
-  .hero .hero-content h1 {
+.hero {
+    position: relative;
+    padding-top: 100px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 25%, transparent 50%);
+    }
+
+.hero .hero-content h1 {
     font-size: 2rem;
+}
+
+.modal-dialog {
+    margin: 0.5rem;
+}
+  .modal-content {
+    border-radius: 1rem;
   }
+
 }
 
 .hero .company-badge {

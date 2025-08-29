@@ -3,6 +3,110 @@
 
         <x-partials.landing.hero></x-partials.landing.hero>
 
+        <!-- Start - Modal Sign In Lms -->
+        <div class="modal fade" id="loginLms" tabindex="-1" aria-labelledby="loginLmsLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Start - Features Section -->
+                    <section id="#" class="features section">
+
+                        <!-- Section Title -->
+                        <div class="container section-title" data-aos="fade-up">
+                            <h2>Login ke Lms</h2>
+                        </div><!-- End Section Title -->
+
+                        <div class="container">
+
+                            <div class="d-flex justify-content-center">
+                                <ul class="nav nav-tabs" data-aos="fade-up" data-aos-delay="100">
+                                    <li class="nav-item">
+                                        <a class="nav-link active show" data-bs-toggle="tab"
+                                            data-bs-target="#login-siswa">
+                                            <h4>Untuk Siswa</h4>
+                                        </a>
+                                    </li><!-- End tab nav item -->
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#login-guru">
+                                            <h4>Untuk Guru</h4>
+                                        </a>
+                                    </li><!-- End tab nav item -->
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-bs-toggle="tab" data-bs-target="#login-admin">
+                                            <h4>Untuk Admin</h4>
+                                        </a>
+                                    </li><!-- End tab nav item -->
+                                </ul>
+                            </div>
+
+                            <div class="tab-content" data-aos="fade-up" data-aos-delay="200">
+
+                                <!-- Login Siswa -->
+                                <div class="tab-pane fade active show" id="login-siswa">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="siswaEmail" class="form-label">Email Siswa</label>
+                                            <input type="email" class="form-control rounded-pill" id="siswaEmail"
+                                                placeholder="nama@siswa.com">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="siswaPassword" class="form-label">Password</label>
+                                            <input type="password" class="form-control rounded-pill" id="siswaPassword"
+                                                placeholder="Masukkan password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Login Siswa</button>
+                                    </form>
+                                </div><!-- End tab content item -->
+
+                                <!-- Login Guru -->
+                                <div class="tab-pane fade" id="login-guru">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="guruEmail" class="form-label">Email Guru</label>
+                                            <input type="email" class="form-control rounded-pill" id="guruEmail"
+                                                placeholder="nama@guru.com">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="guruPassword" class="form-label">Password</label>
+                                            <input type="password" class="form-control rounded-pill" id="guruPassword"
+                                                placeholder="Masukkan password">
+                                        </div>
+                                        <button type="submit" class="btn btn-success w-100 rounded-pill">Login Guru</button>
+                                    </form>
+                                </div><!-- End tab content item -->
+
+                                <!-- Login Admin -->
+                                <div class="tab-pane fade" id="login-admin">
+                                    <form>
+                                        <div class="mb-3">
+                                            <label for="adminUsername" class="form-label">Username Admin</label>
+                                            <input type="text" class="form-control rounded-pill" id="adminUsername"
+                                                placeholder="Username">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="adminPassword" class="form-label">Password</label>
+                                            <input type="password" class="form-control rounded-pill" id="adminPassword"
+                                                placeholder="Masukkan password">
+                                        </div>
+                                        <button type="submit" class="btn btn-danger w-100 rounded-pill">Login Admin</button>
+                                    </form>
+                                </div><!-- End tab content item -->
+
+                            </div>
+
+                        </div>
+
+                    </section>
+                    <!-- End - Features Section -->
+
+                </div>
+            </div>
+        </div>
+        <!-- End - Modal Sign In Lms -->
+
+
         <!-- Start - About Section -->
         <section id="about" class="about section">
 
@@ -217,7 +321,8 @@
                         <div class="feature-box orange">
                             <i class="bi bi-award"></i>
                             <h4>Pembelajaran Interaktif</h4>
-                            <p>Belajar jadi lebih seru dengan e-book, kuis, dan games yang mendukung pemahaman siswa.</p>
+                            <p>Belajar jadi lebih seru dengan e-book, kuis, dan games yang mendukung pemahaman siswa.
+                            </p>
                         </div>
                     </div><!-- End Feature Borx-->
 
@@ -233,7 +338,8 @@
                         <div class="feature-box green">
                             <i class="bi bi-sunrise"></i>
                             <h4> Virtual Fleksibel</h4>
-                            <p>Akses ruang kelas kapan saja dan di mana saja. Interaksi guru dan siswa jadi lebih mudah.</p>
+                            <p>Akses ruang kelas kapan saja dan di mana saja. Interaksi guru dan siswa jadi lebih mudah.
+                            </p>
                         </div>
                     </div><!-- End Feature Borx-->
 
@@ -241,7 +347,8 @@
                         <div class="feature-box red">
                             <i class="bi bi-shield-check"></i>
                             <h4>Keamanan & Kendali</h4>
-                            <p>Data pengguna aman, kontrol admin penuh. Sistem dirancang untuk stabil dan terstruktur.</p>
+                            <p>Data pengguna aman, kontrol admin penuh. Sistem dirancang untuk stabil dan terstruktur.
+                            </p>
                         </div>
                     </div><!-- End Feature Borx-->
 
@@ -265,7 +372,8 @@
                             <div class="d-flex align-items-center justify-content-end gap-4">
                                 <div class="feature-content">
                                     <h3>Bisa Diakses di Semua Perangkat</h3>
-                                    <p>Belajar dan mengajar lebih fleksibel — cukup dari ponsel, tablet, atau laptop.</p>
+                                    <p>Belajar dan mengajar lebih fleksibel — cukup dari ponsel, tablet, atau laptop.
+                                    </p>
                                 </div>
                                 <div class="feature-icon flex-shrink-0">
                                     <i class="bi bi-display"></i>
@@ -338,7 +446,8 @@
                                 </div>
                                 <div class="feature-content">
                                     <h3>Kompatibel Semua Browser</h3>
-                                    <p>Bisa diakses melalui Chrome, Firefox, Edge, Safari, dan lainnya tanpa masalah.</p>
+                                    <p>Bisa diakses melalui Chrome, Firefox, Edge, Safari, dan lainnya tanpa masalah.
+                                    </p>
                                 </div>
                             </div>
                         </div><!-- End .feature-item -->
@@ -359,7 +468,8 @@
                 <div class="row content justify-content-center align-items-center position-relative">
                     <div class="col-lg-8 mx-auto text-center">
                         <h2 class="display-4 mb-4">Saatnya Melangkah Lebih Jauh!</h2>
-                        <p class="mb-4">Bangun masa depan pendidikan bersama kami. Mulai sekarang dan jadilah bagian dari perubahan.</p>
+                        <p class="mb-4">Bangun masa depan pendidikan bersama kami. Mulai sekarang dan jadilah bagian
+                            dari perubahan.</p>
                         <a href="#" class="btn btn-cta">Mulai Sekarang</a>
                     </div>
 
@@ -506,7 +616,8 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Layanan ini benar-benar membantu kami berkembang lebih cepat. Tim yang responsif dan fitur yang sangat bermanfaat membuat semuanya terasa lebih mudah.</span>
+                                <span>Layanan ini benar-benar membantu kami berkembang lebih cepat. Tim yang responsif
+                                    dan fitur yang sangat bermanfaat membuat semuanya terasa lebih mudah.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -525,7 +636,8 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Antarmuka yang mudah digunakan dan fitur yang lengkap membuat pekerjaan saya jauh lebih efisien. Sangat direkomendasikan!</span>
+                                <span>Antarmuka yang mudah digunakan dan fitur yang lengkap membuat pekerjaan saya jauh
+                                    lebih efisien. Sangat direkomendasikan!</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -544,7 +656,8 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Saya sangat puas dengan hasil yang didapat. Tim mereka sangat profesional dan solusi yang ditawarkan sangat tepat sasaran.</span>
+                                <span>Saya sangat puas dengan hasil yang didapat. Tim mereka sangat profesional dan
+                                    solusi yang ditawarkan sangat tepat sasaran.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -563,7 +676,8 @@
                             </div>
                             <p>
                                 <i class="bi bi-quote quote-icon-left"></i>
-                                <span>Pengalaman yang luar biasa! Sangat mudah digunakan dan membuat pekerjaan saya lebih cepat dan terorganisir.</span>
+                                <span>Pengalaman yang luar biasa! Sangat mudah digunakan dan membuat pekerjaan saya
+                                    lebih cepat dan terorganisir.</span>
                                 <i class="bi bi-quote quote-icon-right"></i>
                             </p>
                         </div>
@@ -642,7 +756,8 @@
                             </div>
                             <div>
                                 <h3>Layanan Konsultasi</h3>
-                                <p>Kami menyediakan konsultasi mendalam untuk membantu Anda menemukan solusi terbaik tanpa kompromi.</p>
+                                <p>Kami menyediakan konsultasi mendalam untuk membantu Anda menemukan solusi terbaik
+                                    tanpa kompromi.</p>
                                 <a href="service-details.html" class="read-more">Selengkapnya <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -656,7 +771,8 @@
                             </div>
                             <div>
                                 <h3>Perencanaan Strategis</h3>
-                                <p>Kami membantu merancang strategi yang tepat dan efektif demi keberhasilan proyek Anda.</p>
+                                <p>Kami membantu merancang strategi yang tepat dan efektif demi keberhasilan proyek
+                                    Anda.</p>
                                 <a href="service-details.html" class="read-more">Selengkapnya<i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -670,7 +786,8 @@
                             </div>
                             <div>
                                 <h3>Desain Kreatif</h3>
-                                <p>Kami menghadirkan desain inovatif yang sesuai dengan kebutuhan dan identitas brand Anda.</p>
+                                <p>Kami menghadirkan desain inovatif yang sesuai dengan kebutuhan dan identitas brand
+                                    Anda.</p>
                                 <a href="service-details.html" class="read-more">Selengkapnya<i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -684,7 +801,8 @@
                             </div>
                             <div>
                                 <h3>Analisis Data</h3>
-                                <p>Kami melakukan analisis data yang akurat untuk mendukung pengambilan keputusan yang tepat.</p>
+                                <p>Kami melakukan analisis data yang akurat untuk mendukung pengambilan keputusan yang
+                                    tepat.</p>
                                 <a href="service-details.html" class="read-more">Read More <i
                                         class="bi bi-arrow-right"></i></a>
                             </div>
@@ -844,7 +962,8 @@
 
                     <div class="col-lg-5" data-aos="fade-up">
                         <h2 class="faq-title">Punya Pertanyaan? Cek FAQ Berikut</h2>
-                        <p class="faq-description">Temukan jawaban atas pertanyaan umum seputar fitur dan layanan platform belajar kami.</p>
+                        <p class="faq-description">Temukan jawaban atas pertanyaan umum seputar fitur dan layanan
+                            platform belajar kami.</p>
                         <div class="faq-arrow d-none d-lg-block" data-aos="fade-up" data-aos-delay="200">
                             <svg class="faq-arrow" width="200" height="211" viewBox="0 0 200 211"
                                 fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -861,7 +980,9 @@
                             <div class="faq-item faq-active">
                                 <h3>Bagaimana cara guru membuat kelas virtual di platform ini?</h3>
                                 <div class="faq-content">
-                                    <p>Guru dapat membuat kelas virtual melalui dashboard dengan memilih menu “Buat Kelas”, mengisi detail kelas, dan mengundang siswa untuk bergabung menggunakan kode kelas.</p>
+                                    <p>Guru dapat membuat kelas virtual melalui dashboard dengan memilih menu “Buat
+                                        Kelas”, mengisi detail kelas, dan mengundang siswa untuk bergabung menggunakan
+                                        kode kelas.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -869,7 +990,8 @@
                             <div class="faq-item">
                                 <h3>Apakah siswa bisa mengakses e-book tanpa koneksi internet?</h3>
                                 <div class="faq-content">
-                                    <p>E-book dapat diunduh oleh siswa sehingga bisa diakses secara offline kapan saja tanpa memerlukan koneksi internet.</p>
+                                    <p>E-book dapat diunduh oleh siswa sehingga bisa diakses secara offline kapan saja
+                                        tanpa memerlukan koneksi internet.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -877,7 +999,8 @@
                             <div class="faq-item">
                                 <h3>Bagaimana admin mengelola data pengguna dan laporan tugas?</h3>
                                 <div class="faq-content">
-                                    <p>Admin memiliki akses khusus untuk memantau dan mengelola data guru, siswa, serta laporan tugas melalui panel kontrol yang mudah digunakan.
+                                    <p>Admin memiliki akses khusus untuk memantau dan mengelola data guru, siswa, serta
+                                        laporan tugas melalui panel kontrol yang mudah digunakan.
                                     </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -886,7 +1009,8 @@
                             <div class="faq-item">
                                 <h3>Bisakah siswa mengumpulkan tugas langsung melalui platform?</h3>
                                 <div class="faq-content">
-                                    <p>Siswa dapat mengupload tugas dalam berbagai format langsung pada halaman tugas yang disediakan oleh guru di platform.</p>
+                                    <p>Siswa dapat mengupload tugas dalam berbagai format langsung pada halaman tugas
+                                        yang disediakan oleh guru di platform.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -894,7 +1018,8 @@
                             <div class="faq-item">
                                 <h3>Apakah tersedia fitur game edukasi untuk memperkuat pembelajaran?</h3>
                                 <div class="faq-content">
-                                    <p>Ya, platform menyediakan berbagai game edukasi interaktif yang dirancang untuk meningkatkan pemahaman materi dan keterlibatan siswa secara menyenangkan.
+                                    <p>Ya, platform menyediakan berbagai game edukasi interaktif yang dirancang untuk
+                                        meningkatkan pemahaman materi dan keterlibatan siswa secara menyenangkan.
                                     </p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
@@ -903,7 +1028,8 @@
                             <div class="faq-item">
                                 <h3>Bagaimana cara bergabung menjadi siswa di kelas yang sudah dibuat?</h3>
                                 <div class="faq-content">
-                                    <p>Siswa dapat bergabung dengan memasukkan kode kelas yang diberikan oleh guru pada halaman “Gabung Kelas” di dashboard siswa.</p>
+                                    <p>Siswa dapat bergabung dengan memasukkan kode kelas yang diberikan oleh guru pada
+                                        halaman “Gabung Kelas” di dashboard siswa.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -923,7 +1049,9 @@
                     <div class="col-xl-10">
                         <div class="text-center">
                             <h3>Siap Belajar Lebih Mudah dan Menyenangkan?</h3>
-                            <p>Gabung sekarang dan rasakan kemudahan belajar melalui kelas virtual interaktif, akses e-book digital, tugas otomatis, serta game edukatif yang membuat belajar jadi seru! Cocok untuk siswa, guru, dan admin sekolah.</p>
+                            <p>Gabung sekarang dan rasakan kemudahan belajar melalui kelas virtual interaktif, akses
+                                e-book digital, tugas otomatis, serta game edukatif yang membuat belajar jadi seru!
+                                Cocok untuk siswa, guru, dan admin sekolah.</p>
                             <a class="cta-btn" href="#">Mulai Sekarang</a>
                         </div>
                     </div>
@@ -948,7 +1076,8 @@
                     <div class="col-lg-5">
                         <div class="info-box" data-aos="fade-up" data-aos-delay="200">
                             <h3>Informasi Kontak</h3>
-                            <p>Tim kami siap membantu Anda terkait kebutuhan platform pendidikan, e-learning, atau dukungan teknis.</p>
+                            <p>Tim kami siap membantu Anda terkait kebutuhan platform pendidikan, e-learning, atau
+                                dukungan teknis.</p>
 
                             <div class="info-item" data-aos="fade-up" data-aos-delay="300">
                                 <div class="icon-box">

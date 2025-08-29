@@ -14,11 +14,11 @@
                 <li><a href="#about">Tentang Kami</a></li>
                 <li><a href="#features">Fitur</a></li>
                 <li><a href="#services">Layanan</a></li>
-                <li class="dropdown"><a href="#"><span>Lainya</span> <i
+                <li class="dropdown"><a href="#"><span>E-learning</span> <i
                             class="bi bi-chevron-down toggle-dropdown"></i></a>
                     <ul>
                         <li class="dropdown"><a href="#"><span>Modul Pembelajaran</span>
-                            <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
                                 <li><a href="#">Portal Siswa</a></li>
                                 <li><a href="#">Portal Guru</a></li>
@@ -37,7 +37,7 @@
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
 
-        <a class="btn-getstarted" href="index.html#about">Mulai sekarang</a>
+        <button type="button"class=" btn btn-getstarted" data-bs-toggle="modal" data-bs-target="#loginLms">Masuk</button>
 
     </div>
 </header>
