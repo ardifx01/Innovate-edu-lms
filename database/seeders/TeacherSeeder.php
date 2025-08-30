@@ -19,7 +19,7 @@ public function run(): void
         'email' => 'admin@example.com',
         'first_name' => 'Budi',
         'last_name' => 'Prabowo',
-        'rank' => 'S.Kom',
+        'degree' => 'S.Kom',
         'password' => bcrypt('password'),
         'role' => 'operator',
     ]);
@@ -30,7 +30,7 @@ public function run(): void
         'email' => 'teacher1@example.com',
         'first_name' => 'Siti',
         'last_name' => 'Rahmawati',
-        'rank' => 'S.Pd',
+        'degree' => 'S.Pd',
         'password' => bcrypt('password'),
         'role' => 'teacher',
     ]);
@@ -40,7 +40,7 @@ public function run(): void
         'email' => 'teacher2@example.com',
         'first_name' => 'Ahmad',
         'last_name' => 'Suhada',
-        'rank' => 'M.Pd',
+        'degree' => 'M.Pd',
         'password' => bcrypt('password'),
         'role' => 'teacher',
     ]);
@@ -50,7 +50,7 @@ public function run(): void
         'email' => 'teacher3@example.com',
         'first_name' => 'Dewi',
         'last_name' => 'Mulia',
-        'rank' => 'S.Sos',
+        'degree' => 'S.Sos',
         'password' => bcrypt('password'),
         'role' => 'teacher',
     ]);
@@ -60,7 +60,7 @@ public function run(): void
         'email' => 'teacher4@example.com',
         'first_name' => 'Rudi',
         'last_name' => 'Santoso',
-        'rank' => 'S.T',
+        'degree' => 'S.T',
         'password' => bcrypt('password'),
         'role' => 'teacher',
     ]);
@@ -70,7 +70,7 @@ public function run(): void
         'email' => 'teacher5@example.com',
         'first_name' => 'Lina',
         'last_name' => 'Sari',
-        'rank' => 'S.E',
+        'degree' => 'S.E',
         'password' => bcrypt('password'),
         'role' => 'teacher',
     ]);

@@ -22,7 +22,7 @@ class User extends Authenticatable
         'email',
         'first_name',
         'last_name',
-        'rank',
+        'degree',
         'address',
         'city',
         'province',

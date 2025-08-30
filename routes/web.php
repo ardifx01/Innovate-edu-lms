@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\Login;
+use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\Teacher;
 
 Route::get('/', function () {
     return view('pages.landing.index');
@@ -10,7 +11,7 @@ Route::get('/', function () {
 
 
 // Login Routes
-Route::group(['prefix' => 'login', 'as' => 'login.', 'controller' => LoginController::class], function () {
+Route::group(['prefix' => 'login', 'as' => 'login.', 'controller' => Login::class], function () {
     Route::get('/portal', 'portal')->name('portal');
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/contact', 'contact')->name('contact');
@@ -25,92 +26,98 @@ Route::group(['prefix' => 'login', 'as' => 'login.', 'controller' => LoginContro
 
 
 // Admin Dashboard Routes
-Route::group([
-    'prefix' => 'operator/',
-    'as' => 'operator.',
-    'middleware' => 'role:operator',
-    'controller' => AdminDashboardController::class],
+Route::group(
+    [
+        'prefix' => 'operator/',
+        'as' => 'operator.',
+        'middleware' => 'role:operator',
+        'controller' => Dashboard::class
+    ],
 
     function () {
         Route::get('/', 'index')->name('index');
 
-    // Profile Routes
-    // Route::group([
-    //     'prefix' => 'profile',
-    //     'as' => 'profile.',
-    //     'controller' => ProfileController::class
-    // ],
+        // Profile Routes
+        // Route::group([
+        //     'prefix' => 'profile',
+        //     'as' => 'profile.',
+        //     'controller' => ProfileController::class
+        // ],
 
-    //     function () {
-    //         // Route::get('/', 'index')->name('index');
-    //         Route::get('/edit', 'edit')->name('edit');
-    //         // Route::post('/store', 'store')->name('store');
-    //         Route::put('/{id}', 'update')->name('update');
-    //         // Route::delete('/{id}', 'destroy')->name('destroy');
-    // });
+        //     function () {
+        //         // Route::get('/', 'index')->name('index');
+        //         Route::get('/edit', 'edit')->name('edit');
+        //         // Route::post('/store', 'store')->name('store');
+        //         Route::put('/{id}', 'update')->name('update');
+        //         // Route::delete('/{id}', 'destroy')->name('destroy');
+        // });
 
-    // // Classroom Routes
-    // Route::group([
-    //     'prefix' => 'classroom/',
-    //     'as' => 'classroom.',
-    //     'controller' => ClassroomController::class],
+        // // Classroom Routes
+        // Route::group([
+        //     'prefix' => 'classroom/',
+        //     'as' => 'classroom.',
+        //     'controller' => ClassroomController::class],
 
-    //     function () {
-    //         Route::get('/', 'index')->name('index');
-    //         Route::get('/create', 'create')->name('create');
-    //         Route::post('/store', 'store')->name('store');
-    //         Route::delete('/{id}', 'destroy')->name('destroy');
-    //         Route::post('/import', 'import')->name('import');
-    // });
+        //     function () {
+        //         Route::get('/', 'index')->name('index');
+        //         Route::get('/create', 'create')->name('create');
+        //         Route::post('/store', 'store')->name('store');
+        //         Route::delete('/{id}', 'destroy')->name('destroy');
+        //         Route::post('/import', 'import')->name('import');
+        // });
 
-    // // Teacher Routes
-    // Route::group([
-    //     'prefix' => 'teachers/',
-    //     'as' => 'teachers.',
-    //     'controller' => TeacherController::class],
-    //     function () {
-    //         Route::get('/', 'index')->name('index');
-    //         Route::get('/create', 'create')->name('create');
-    //         Route::post('/store', 'store')->name('store');
-    //         Route::get('/{id}/edit', 'edit')->name('edit');
-    //         Route::put('/{id}', 'update')->name('update');
-    //         Route::delete('/{teacher}', 'destroy')->name('destroy');
-    //         Route::get('/{id}', 'show')->name('show');
-    //         Route::post('/import', 'import')->name('import');
-    // });
-
-
-    // // Student Routes
-    // Route::group([
-    //     'prefix' => 'students/',
-    //     'as' => 'students.',
-    //     'controller' => StudentController::class],
-    //     function () {
-    //         Route::get('/', 'index')->name('index');
-    //         Route::get('/create', 'create')->name('create');
-    //         Route::post('/store', 'store')->name('store');
-    //         Route::get('/{id}/edit', 'edit')->name('edit');
-    //         Route::put('/{id}', 'update')->name('update');
-    //         Route::get('/{student}', 'show')->name('show');
-    //         Route::delete('/{id}', 'destroy')->name('destroy');
-    //         Route::post('/import', 'import')->name('import');
-    // });
+        // Teacher Routes
+        Route::group(
+            [
+                'prefix' => 'teachers/',
+                'as' => 'teachers.',
+                'controller' => Teacher::class
+            ],
+            function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::put('/{id}', 'update')->name('update');
+                Route::delete('/{teacher}', 'destroy')->name('destroy');
+                Route::get('/{id}', 'show')->name('show');
+                Route::post('/import', 'import')->name('import');
+            }
+        );
 
 
-    // // Subject Routes
-    // Route::group([
-    //     'prefix' => 'subjects',
-    //     'as' => 'subjects.',
-    //     'controller' => SubjectController::class],
-    //     function () {
-    //         Route::get('/', 'index')->name('index');
-    //         Route::get('/create', 'create')->name('create');
-    //         Route::post('/store', 'store')->name('store');
-    //         Route::get('/{id}/edit', 'edit')->name('edit');
-    //         Route::put('/{id}', 'update')->name('update');
-    //         Route::get('/{id}', 'show')->name('show');
-    //         Route::delete('/{id}', 'destroy')->name('destroy');
-    //         Route::post('/import', 'import')->name('import');
-    // });
+        // // Student Routes
+        // Route::group([
+        //     'prefix' => 'students/',
+        //     'as' => 'students.',
+        //     'controller' => StudentController::class],
+        //     function () {
+        //         Route::get('/', 'index')->name('index');
+        //         Route::get('/create', 'create')->name('create');
+        //         Route::post('/store', 'store')->name('store');
+        //         Route::get('/{id}/edit', 'edit')->name('edit');
+        //         Route::put('/{id}', 'update')->name('update');
+        //         Route::get('/{student}', 'show')->name('show');
+        //         Route::delete('/{id}', 'destroy')->name('destroy');
+        //         Route::post('/import', 'import')->name('import');
+        // });
 
-});
+
+        // // Subject Routes
+        // Route::group([
+        //     'prefix' => 'subjects',
+        //     'as' => 'subjects.',
+        //     'controller' => SubjectController::class],
+        //     function () {
+        //         Route::get('/', 'index')->name('index');
+        //         Route::get('/create', 'create')->name('create');
+        //         Route::post('/store', 'store')->name('store');
+        //         Route::get('/{id}/edit', 'edit')->name('edit');
+        //         Route::put('/{id}', 'update')->name('update');
+        //         Route::get('/{id}', 'show')->name('show');
+        //         Route::delete('/{id}', 'destroy')->name('destroy');
+        //         Route::post('/import', 'import')->name('import');
+        // });
+
+    }
+);

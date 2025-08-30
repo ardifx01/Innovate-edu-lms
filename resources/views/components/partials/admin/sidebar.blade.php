@@ -35,8 +35,7 @@
                 <div class="collapse" id="userManagementDropdown">
                     <ul class="nav flex-column ms-4">
                         <li class="nav-item">
-                            <a class="nav-link" href="">
-                            {{-- <a class="nav-link" href="{{ route('operator.teachers.index') }}"> --}}
+                            <a class="nav-link" href="{{ route('operator.teachers.index') }}">
                                 <span class="nav-link-text">Tambah Data Guru</span>
                             </a>
                         </li>

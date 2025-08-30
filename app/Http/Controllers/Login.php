@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 
-class LoginController extends Controller
+class Login extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -13,7 +13,7 @@ class RoleMiddleware
     {
         // Periksa apakah pengguna terautentikasi di salah satu guard
         if (!Auth::guard('student')->check() && !Auth::guard('teacher')->check() && !Auth::guard('operator')->check()) {
-            return redirect()->route('login.portal')->withErrors('Unauthorized access. Please log in.');
+            return redirect('/')->withErrors('Unauthorized access. Please log in.');
         }
 
         // Ambil role pengguna sesuai dengan guard yang terautentikasi

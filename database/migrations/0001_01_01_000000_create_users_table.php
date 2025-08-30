@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('nip')->unique()->nullable();
             $table->string('email')->unique();
             $table->string('first_name');
-            $table->string('last_name');
-            $table->string('rank');
+            $table->string('last_name')->nullable();
+            $table->string('degree');
             $table->text('address')->nullable();
             $table->string('city')->nullable();
             $table->string('province')->nullable();
