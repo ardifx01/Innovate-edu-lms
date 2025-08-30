@@ -79,16 +79,17 @@
 
                                 <!-- Login Admin -->
                                 <div class="tab-pane fade" id="login-admin">
-                                    <form>
+                                    <form role="form" method="POST" action="{{ route('login.operator.post') }}">
+                                        @csrf
                                         <div class="mb-3">
-                                            <label for="adminUsername" class="form-label">Username Admin</label>
-                                            <input type="text" class="form-control rounded-pill" id="adminUsername"
-                                                placeholder="Username">
+                                            <label for="adminUsername" class="form-label">Email Admin</label>
+                                            <input type="email" name="email" class="form-control rounded-pill" id="adminemail"
+                                                placeholder="Email">
                                         </div>
                                         <div class="mb-3">
                                             <label for="adminPassword" class="form-label">Password</label>
-                                            <input type="password" class="form-control rounded-pill" id="adminPassword"
-                                                placeholder="Masukkan password">
+                                            <input type="password" name="password" class="form-control rounded-pill" id="adminPassword"
+                                                placeholder="Masukkan password" aria-label="password" autocomplete="current-password" required>
                                         </div>
                                         <button type="submit" class="btn btn-danger w-100 rounded-pill">Login Admin</button>
                                     </form>
