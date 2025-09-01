@@ -32,6 +32,7 @@ return new class extends Migration
             $table->string('profile_picture')->nullable();
             $table->string('password');
             $table->enum('role', ['operator', 'teacher'])->default('teacher');
+            $table->boolean('must_change_password')->default(true);
             $table->rememberToken();
             $table->timestamps();
         });

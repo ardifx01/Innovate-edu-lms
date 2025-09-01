@@ -28,4 +28,14 @@ class Dashboard extends Controller
             'title',
         ));
     }
+
+    public function teacherDashboard()
+    {
+        $title = 'Halaman Dashboard';
+        return view('teacher::index',
+
+        compact(
+            'title',
+        ));
+    }
 }

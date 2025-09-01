@@ -53,7 +53,7 @@ class Teacher extends Controller
             'email' => 'required|email|unique:users,email|max:255',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'rank' => 'required|string|max:10',
+            'degree' => 'required|string|max:10',
             'address' => 'nullable|string',
             'city' => 'nullable|string|max:255',
             'province' => 'nullable|string|max:255',
@@ -79,7 +79,7 @@ class Teacher extends Controller
             'email' => $request->input('email'),
             'first_name' => $request->input('first_name'),
             'last_name' => $request->input('last_name'),
-            'rank' => $request['rank'],
+            'degree' => $request['degree'],
             'address' => $request->input('address'),
             'city' => $request->input('city'),
             'province' => $request->input('province'),
@@ -152,7 +152,7 @@ class Teacher extends Controller
             'email' => 'required|email|max:255',
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'rank' => 'required|string|max:10',
+            'degree' => 'required|string|max:10',
             'address' => 'nullable|string',
             'city' => 'nullable|string',
             'province' => 'nullable|string',
@@ -173,7 +173,7 @@ class Teacher extends Controller
         $user->email = $request->input('email');
         $user->first_name = $request->input('first_name');
         $user->last_name = $request->input('last_name');
-        $user->rank = $request->input('rank');
+        $user->degree = $request->input('degree');
         $user->address = $request->input('address');
         $user->city = $request->input('city');
         $user->province = $request->input('province');

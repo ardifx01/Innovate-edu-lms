@@ -62,16 +62,17 @@
 
                                 <!-- Login Guru -->
                                 <div class="tab-pane fade" id="login-guru">
-                                    <form>
+                                    <form role="form" method="POST" action="{{ route('login.teacher.post') }}">
+                                        @csrf
                                         <div class="mb-3">
                                             <label for="guruEmail" class="form-label">Email Guru</label>
-                                            <input type="email" class="form-control rounded-pill" id="guruEmail"
+                                            <input type="email" name="email" class="form-control rounded-pill" id="guruEmail"
                                                 placeholder="nama@guru.com">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="guruPassword" class="form-label">Password</label>
-                                            <input type="password" class="form-control rounded-pill" id="guruPassword"
-                                                placeholder="Masukkan password">
+                                            <label for="password" class="form-label">Password</label>
+                                            <input type="password" name="password" class="form-control rounded-pill" id="password"
+                                                placeholder="Masukkan password" required autocomplete="current-password">
                                         </div>
                                         <button type="submit" class="btn btn-success w-100 rounded-pill">Login Guru</button>
                                     </form>

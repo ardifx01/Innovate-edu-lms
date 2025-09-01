@@ -143,10 +143,10 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="rank" class="form-control-label">Pangkat Jabatan <span
+                                        <label for="degree" class="form-control-label">Pangkat Jabatan <span
                                                 style="color: red;">*</span></label>
-                                        <input class="form-control" type="text" id="rank" name="rank"
-                                            value="{{ old('rank', $teacher->rank) }}"
+                                        <input class="form-control" type="text" id="degree" name="degree"
+                                            value="{{ old('degree', $teacher->degree) }}"
                                             placeholder="Masukkan Pangkat Jabatan" required>
                                     </div>
                                 </div>

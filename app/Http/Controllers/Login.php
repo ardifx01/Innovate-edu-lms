@@ -64,6 +64,18 @@ class Login extends Controller
         //
     }
 
+    public function loginTeacher(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        // Gunakan guard 'teacher' untuk autentikasi
+        if (Auth::guard('teacher')->attempt($credentials, $request->filled('remember'))) {
+            return redirect()->intended('/teacher');
+        }
+
+        return back()->withErrors(['email' => 'Email atau password salah.']);
+    }
+
     public function loginOperator(Request $request)
     {
         $credentials = $request->only('email', 'password');
