@@ -39,6 +39,32 @@
         style="background-image: url('{{ asset('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg') }}'); background-position-y: 50%;">
         <span class="mask bg-primary opacity-6"></span>
     </div>
+    <!-- Modal Logout Confirmation -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-gradient-warning text-white">
+                    <h6 class="modal-title" id="logoutModalLabel">Konfirmasi Logout</h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="ni ni-user-run text-warning ni-3x mb-3"></i>
+                    <h5>Anda yakin ingin logout?</h5>
+                    <p class="text-muted">Sesi Anda akan diakhiri dan perlu login kembali.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <form id="logout-form" action="{{ route('login.logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Modal Logout Confirmation -->
+
 
     <x-partials.teacher.sidebar></x-partials.teacher.sidebar>
     <div class="main-content position-relative max-height-vh-100 h-100">
@@ -160,7 +186,7 @@
             },
         });
     </script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     @stack('scripts')
 
 </body>

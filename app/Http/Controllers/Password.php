@@ -9,21 +9,29 @@ use Illuminate\Support\Facades\Hash;
 
 class Password extends Controller
 {
-    public function showChangeForm()
+public function showChangeForm()
     {
-        return view('auth.change-password'); // Buat blade form
+        // Kalau user buka /password/change secara manual,
+        // kita balikkan ke dashboard mereka dan paksa buka modal via flash session.
+        return redirect()->route('teacher.index')->with('forcePasswordModal', true);
     }
 
-    public function update(Request $request)
+    public function changePassword(Request $request)
     {
         $request->validate([
             'password' => 'required|string|min:8|confirmed',
         ]);
-        $user = User::find(Auth::id());
-        $user->password = Hash::make($request->password);
-        $user->must_change_password = false; // Setelah ganti password pertama kali
-        $user->save();
 
-        return redirect('/')->with('success', 'Password berhasil diperbarui.');
+        $user = Auth::guard('teacher')->user()
+            ?? Auth::guard('student')->user();
+
+        if (!$user) {
+            return redirect('/')->withErrors('Unauthorized access. Please log in.');
+        }
+
+        $user->password = Hash::make($request->password);
+        $user->must_change_password = false;
+        $user->save();
+        return redirect('/')->with('success', 'Password berhasil diperbarui. Silakan login kembali.');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use App\Models\Classroom;
 use App\Models\Student;
@@ -17,25 +18,26 @@ class Dashboard extends Controller
         // $countStudent = Student::where('role', 'student')->count();
         $user = Auth::guard('operator')->user();
         // $totalUsers = $countTeacher + $countStudent;
-        return view('operator::index',
+        return view(
+            'operator::index',
 
-        compact(
-            'user',
-            // 'countTeacher',
-            // 'countStudent',
-            // 'countClassroom',
-            // 'totalUsers',
-            'title',
-        ));
+            compact(
+                'user',
+                // 'countTeacher',
+                // 'countStudent',
+                // 'countClassroom',
+                // 'totalUsers',
+                'title',
+            )
+        );
     }
 
     public function teacherDashboard()
     {
         $title = 'Halaman Dashboard';
-        return view('teacher::index',
+        $user = Auth::guard('teacher')->user();
+        $mustChangePassword = (bool) optional($user)->must_change_password;
 
-        compact(
-            'title',
-        ));
+        return view('teacher::index', compact('title', 'mustChangePassword'));
     }
 }

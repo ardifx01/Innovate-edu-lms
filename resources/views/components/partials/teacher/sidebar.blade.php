@@ -5,7 +5,8 @@
             aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand m-0" href="https://demos.creative-tim.com/argon-dashboard/pages/dashboard.html"
             target="_blank">
-            <img src="{{ asset('../assets/dashboard/img/logo-ct-dark.png') }}" class="navbar-brand-img h-100" alt="main_logo">
+            <img src="{{ asset('../assets/dashboard/img/logo-ct-dark.png') }}" class="navbar-brand-img h-100"
+                alt="main_logo">
             <span class="ms-1 font-weight-bold">Discoval - LMS</span>
         </a>
     </div>
@@ -15,7 +16,7 @@
             <!-- Dashboard -->
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                {{-- <a class="nav-link" href="{{ route('teacher.index') }}"> --}}
+                    {{-- <a class="nav-link" href="{{ route('teacher.index') }}"> --}}
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
@@ -43,7 +44,7 @@
                     <ul class="nav flex-column ms-4">
                         <li class="nav-item">
                             <a class="nav-link" href="">
-                            {{-- <a class="nav-link" href="{{ route('teacher.assignments.index') }}"> --}}
+                                {{-- <a class="nav-link" href="{{ route('teacher.assignments.index') }}"> --}}
                                 <span class="nav-link-text">Tambah Tugas</span>
                             </a>
                         </li>
@@ -70,7 +71,7 @@
                     <ul class="nav flex-column ms-4">
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                            {{-- <a class="nav-link" href="{{ route('teacher.materials.index') }}"> --}}
+                                {{-- <a class="nav-link" href="{{ route('teacher.materials.index') }}"> --}}
                                 <span class="nav-link-text">Tambah Konten Belajar</span>
                             </a>
                         </li>
@@ -92,7 +93,7 @@
                     <ul class="nav flex-column ms-4">
                         <li class="nav-item">
                             <a class="nav-link" href="#">
-                            {{-- <a class="nav-link" href="{{ route('teacher.virtual-class.index') }}"> --}}
+                                {{-- <a class="nav-link" href="{{ route('teacher.virtual-class.index') }}"> --}}
                                 <span class="nav-link-text">Tambah Kelas Virtual</span>
                             </a>
                         </li>
@@ -107,7 +108,7 @@
             <!-- Ice Breaking -->
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                {{-- <a class="nav-link" href="{{ route('teacher.icebreaking.index') }}"> --}}
+                    {{-- <a class="nav-link" href="{{ route('teacher.icebreaking.index') }}"> --}}
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-controller text-success text-sm opacity-10"></i>
@@ -123,7 +124,7 @@
             <!-- Profile -->
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                {{-- <a class="nav-link" href="{{ route('teacher.profile.edit') }}"> --}}
+                    {{-- <a class="nav-link" href="{{ route('teacher.profile.edit') }}"> --}}
                     <div
                         class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
@@ -151,7 +152,10 @@
         <form action="{{ route('login.logout') }}" method="POST" class="d-inline"
             onsubmit="return confirm('Are you sure you want to logout?');">
             @csrf
-            <button type="submit" class="btn bg-gradient-warning btn-round btn-sm mb-0 w-100">Logout</button>
+            <button type="button" class="btn bg-gradient-warning btn-round btn-sm mb-0 w-100" data-bs-toggle="modal"
+                data-bs-target="#logoutModal">
+                Logout
+            </button>
         </form>
     </div>
 </aside>

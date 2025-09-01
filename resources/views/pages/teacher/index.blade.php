@@ -3,83 +3,81 @@
     {{-- <x-partials.teacher.navbar :title="$title" /> --}}
 
 
-    @section('content')
-        <div class="container">
-            <h3>Dashboard Guru</h3>
-            <p>Selamat datang,</p>
-            {{-- <p>Selamat datang, {{ Auth::user()->first_name }}!</p> --}}
-        </div>
-
-        {{-- Debug untuk cek nilai must_change_password --}}
-        @if (Auth::check())
-            <script>
-                console.log("must_change_password = {{ Auth::user()->must_change_password }}");
-            </script>
-        @endif
-
-        <!-- Modal Ganti Password -->
-        <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="changePasswordLabel"
-            aria-hidden="true" data-backdrop="static" data-keyboard="false">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="changePasswordLabel">Ganti Password Pertama Kali</h5>
-                        <!-- Bootstrap 4 butuh tombol close -->
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form method="POST" action="{{ route('password.change.update') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label for="password">Password Baru</label>
-                                <input type="password" class="form-control" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password_confirmation">Konfirmasi Password</label>
-                                <input type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100">Simpan</button>
-                        </form>
-                    </div>
+    {{-- Modal: Force Change Password --}}
+    <div class="modal fade" id="forceChangePasswordModal" tabindex="-1" aria-labelledby="forceChangePasswordLabel"
+        aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ganti Password Baru</h5>
                 </div>
+                <form method="POST" action="{{ route('password.change') }}">
+                    @csrf
+                    <div class="modal-body">
+                        <p class="mb-3">Demi keamanan, silakan buat password baru sebelum melanjutkan.</p>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password Baru</label>
+                            <input type="password" name="password" id="password"
+                                class="form-control @error('password') is-invalid @enderror" required minlength="8"
+                                autocomplete="new-password" autofocus>
+                            @error('password')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        <input type="password" name="password_confirmation" id="password_confirmation"
+                            class="form-control @error('password_confirmation') is-invalid @enderror" required
+                            autocomplete="new-password">
+
+                        @error('password_confirmation')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url('/logout') }}" class="btn btn-outline-secondary"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            Logout
+                        </a>
+                        <button type="submit" class="btn btn-primary">Simpan Password</button>
+                    </div>
+                </form>
             </div>
         </div>
-    @endsection
+    </div>
+
+    <form id="logout-form" action="{{ url('/logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
+
+    <div class="container-fluid py-4" style="margin-top: 1rem">
+        {{-- isi card dashboard --}}
+    </div>
+
 
     @push('scripts')
-        @if (Auth::check())
-            <script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    let mustChangePassword = @json(Auth::user()->must_change_password);
-                    console.log("must_change_password =", mustChangePassword);
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const flags = {
+                    mustChange: @json($mustChangePassword),
+                    forceByFlash: @json((bool) session('forcePasswordModal')),
+                    hasErrors: @json($errors->any())
+                };
 
-                    if (mustChangePassword == 1) {
-                        let modalEl = document.getElementById('changePasswordModal');
-                        let modal = new bootstrap.Modal(modalEl, {
-                            backdrop: 'static',
-                            keyboard: false
-                        });
-                        modal.show();
-                    }
-                });
-            </script>
-        @endif
+                const modalEl = document.getElementById('forceChangePasswordModal');
+                if (!modalEl) return;
+
+                if (flags.mustChange || flags.forceByFlash || flags.hasErrors) {
+                    const instance = new bootstrap.Modal(modalEl, {
+                        backdrop: 'static',
+                        keyboard: false
+                    });
+                    instance.show();
+                }
+            });
+        </script>
     @endpush
-
-    <pre>
-    Auth::check() = {{ Auth::check() ? 'yes' : 'no' }}
-    Auth::id() = {{ Auth::id() }}
-</pre>
-
-
-
-
-
-
-    <!-- End Modal Ganti Password -->
-
 
     <div class="container-fluid py-4" style="margin-top: 1rem">
         <div class="row">

@@ -56,7 +56,8 @@
                                             <input type="password" class="form-control rounded-pill" id="siswaPassword"
                                                 placeholder="Masukkan password">
                                         </div>
-                                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Login Siswa</button>
+                                        <button type="submit" class="btn btn-primary w-100 rounded-pill">Login
+                                            Siswa</button>
                                     </form>
                                 </div><!-- End tab content item -->
 
@@ -66,15 +67,17 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="guruEmail" class="form-label">Email Guru</label>
-                                            <input type="email" name="email" class="form-control rounded-pill" id="guruEmail"
-                                                placeholder="nama@guru.com">
+                                            <input type="email" name="email" class="form-control rounded-pill"
+                                                id="guruEmail" placeholder="nama@guru.com">
                                         </div>
                                         <div class="mb-3">
                                             <label for="password" class="form-label">Password</label>
-                                            <input type="password" name="password" class="form-control rounded-pill" id="password"
-                                                placeholder="Masukkan password" required autocomplete="current-password">
+                                            <input type="password" name="password" class="form-control rounded-pill"
+                                                id="password" placeholder="Masukkan password" required
+                                                autocomplete="current-password">
                                         </div>
-                                        <button type="submit" class="btn btn-success w-100 rounded-pill">Login Guru</button>
+                                        <button type="submit" class="btn btn-success w-100 rounded-pill">Login
+                                            Guru</button>
                                     </form>
                                 </div><!-- End tab content item -->
 
@@ -84,15 +87,17 @@
                                         @csrf
                                         <div class="mb-3">
                                             <label for="adminUsername" class="form-label">Email Admin</label>
-                                            <input type="email" name="email" class="form-control rounded-pill" id="adminemail"
-                                                placeholder="Email">
+                                            <input type="email" name="email" class="form-control rounded-pill"
+                                                id="adminemail" placeholder="Email">
                                         </div>
                                         <div class="mb-3">
                                             <label for="adminPassword" class="form-label">Password</label>
-                                            <input type="password" name="password" class="form-control rounded-pill" id="adminPassword"
-                                                placeholder="Masukkan password" aria-label="password" autocomplete="current-password" required>
+                                            <input type="password" name="password" class="form-control rounded-pill"
+                                                id="adminPassword" placeholder="Masukkan password" aria-label="password"
+                                                autocomplete="current-password" required>
                                         </div>
-                                        <button type="submit" class="btn btn-danger w-100 rounded-pill">Login Admin</button>
+                                        <button type="submit" class="btn btn-danger w-100 rounded-pill">Login
+                                            Admin</button>
                                     </form>
                                 </div><!-- End tab content item -->
 
@@ -1166,4 +1171,73 @@
         <!-- End - Contact Section -->
 
     </main>
+
+    <!-- ================== MODALS ================== -->
+
+    <!-- Password Success Modal -->
+    <div class="modal fade" id="passwordSuccess" tabindex="-1" aria-labelledby="passwordSuccessLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-success modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-success text-white">
+                    <h6 class="modal-title" id="passwordSuccessLabel">Sukses</h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="ni ni-check-bold text-success ni-3x mb-3"></i>
+                    <h5>Password berhasil diperbarui!</h5>
+                    <p class="text-muted">{{ session('success') }}</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok, Mengerti</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Success Modal -->
+    <div class="modal fade" id="logoutSuccessModal" tabindex="-1" aria-labelledby="logoutSuccessLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header bg-gradient-success text-white">
+                    <h6 class="modal-title" id="logoutSuccessLabel">Berhasil Logout</h6>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="ni ni-check-bold text-success ni-3x mb-3"></i>
+                    <h5>Sampai jumpa!</h5>
+                    <p class="text-muted">{{ session('status') }}</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Ok, Mengerti</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================== SCRIPT ================== -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mapping session key -> modal ID
+            const modalsMap = {
+                'success': 'passwordSuccess', // jika ada session('success') → tampilkan modal passwordSuccess
+                'status': 'logoutSuccessModal' // jika ada session('status') → tampilkan modal logoutSuccessModal
+            };
+
+            @foreach (['success', 'status'] as $key)
+                @if (session($key))
+                    var modalId = modalsMap['{{ $key }}'];
+                    var modal = new bootstrap.Modal(document.getElementById(modalId));
+                    modal.show();
+                @endif
+            @endforeach
+        });
+    </script>
+
+
+
+
 </x-layout.landing>
