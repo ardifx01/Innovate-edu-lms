@@ -1,3 +1,4 @@
+{{-- Start - Main Layout Landing Page  --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,3 +67,4 @@
 </body>
 
 </html>
+{{-- End - Main Layout Landing Page  --}}

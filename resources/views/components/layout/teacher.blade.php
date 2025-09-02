@@ -1,3 +1,4 @@
+{{-- Start - Main Layout Teacher  --}}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -192,3 +193,4 @@
 </body>
 
 </html>
+{{-- End - Main Layout Teacher  --}}

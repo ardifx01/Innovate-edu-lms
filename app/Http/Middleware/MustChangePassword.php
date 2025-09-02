@@ -13,7 +13,9 @@ class MustChangePassword
     public function handle(Request $request, Closure $next)
     {
         $user = Auth::guard('teacher')->user()
-            ?? Auth::guard('student')->user();
+            ?? Auth::guard('student')->user()
+            ?? Auth::guard('operator')->user();
+;
 
         if (!$user) {
             return redirect('/')->withErrors('Unauthorized access. Please log in.');
