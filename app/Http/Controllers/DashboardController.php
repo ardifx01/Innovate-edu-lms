@@ -8,7 +8,7 @@ use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class Dashboard extends Controller
+class DashboardController extends Controller
 {
     public function index()
     {

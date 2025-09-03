@@ -1,21 +1,22 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Login;
-use App\Http\Controllers\Dashboard;
-use App\Http\Controllers\Teacher;
-use App\Http\Controllers\Password;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PasswordController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
 
 Route::get('/', function () {
     return view('pages.landing.index');
 });
 
-// Route::get('/teacher', function () {
-//     return view('pages.teacher.index');
+// Route::get('/student', function () {
+//     return view('pages.admin.student.index');
 // });
 
 // Login Routes
-Route::group(['prefix' => 'login', 'as' => 'login.', 'controller' => Login::class], function () {
+Route::group(['prefix' => 'login', 'as' => 'login.', 'controller' => LoginController::class], function () {
     Route::get('/portal', 'portal')->name('portal');
     Route::get('/dashboard', 'dashboard')->name('dashboard');
     Route::get('/contact', 'contact')->name('contact');
@@ -35,7 +36,7 @@ Route::group(
         'prefix' => 'operator/',
         'as' => 'operator.',
         'middleware' => 'role:operator',
-        'controller' => Dashboard::class
+        'controller' => DashboardController::class
     ],
 
     function () {
@@ -75,7 +76,7 @@ Route::group(
             [
                 'prefix' => 'teachers/',
                 'as' => 'teachers.',
-                'controller' => Teacher::class
+                'controller' => TeacherController::class
             ],
             function () {
                 Route::get('/', 'index')->name('index');
@@ -90,21 +91,21 @@ Route::group(
         );
 
 
-        // // Student Routes
-        // Route::group([
-        //     'prefix' => 'students/',
-        //     'as' => 'students.',
-        //     'controller' => StudentController::class],
-        //     function () {
-        //         Route::get('/', 'index')->name('index');
-        //         Route::get('/create', 'create')->name('create');
-        //         Route::post('/store', 'store')->name('store');
-        //         Route::get('/{id}/edit', 'edit')->name('edit');
-        //         Route::put('/{id}', 'update')->name('update');
-        //         Route::get('/{student}', 'show')->name('show');
-        //         Route::delete('/{id}', 'destroy')->name('destroy');
-        //         Route::post('/import', 'import')->name('import');
-        // });
+        // Student Routes
+        Route::group([
+            'prefix' => 'students/',
+            'as' => 'students.',
+            'controller' => StudentController::class],
+            function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::get('/{id}/edit', 'edit')->name('edit');
+                Route::put('/{id}', 'update')->name('update');
+                Route::get('/{student}', 'show')->name('show');
+                Route::delete('/{id}', 'destroy')->name('destroy');
+                Route::post('/import', 'import')->name('import');
+        });
 
 
         // // Subject Routes
@@ -130,7 +131,7 @@ Route::group([
     'prefix' => 'teacher',
     'as' => 'teacher.',
     'middleware' => ['role:teacher'],
-    'controller' => Dashboard::class
+    'controller' => DashboardController::class
 ], function () {
     Route::get('/', 'teacherDashboard')->name('index');
 });
@@ -139,7 +140,7 @@ Route::group([
     'prefix' => 'password',
     'as' => 'password.',
     'middleware' => ['role:student,teacher', 'mustChangePassword'],
-    'controller' => Password::class
+    'controller' => PasswordController::class
 ], function () {
     Route::get('/change', 'showChangeForm')->name('change.form');
     Route::post('/change', 'changePassword')->name('change');

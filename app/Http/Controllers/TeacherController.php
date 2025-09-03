@@ -11,7 +11,7 @@ use Maatwebsite\Excel\Facades\Excel;
 
 // use Maatwebsite\Excel\Facades\Excel;
 
-class Teacher extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -114,7 +114,7 @@ class Teacher extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Teacher $teacher, $id)
+    public function show(User $teacher, $id)
     {
         $user = Auth::guard('operator')->user();
         $teacher = User::findOrFail($id);
@@ -130,7 +130,7 @@ class Teacher extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Teacher $teacher, $id)
+    public function edit(User $teacher, $id)
     {
         $user = Auth::guard('operator')->user();
         $teacher = User::findOrFail($id);
@@ -145,7 +145,7 @@ class Teacher extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Teacher $teacher, $id)
+    public function update(Request $request, User $teacher, $id)
     {
         $request->validate([
             'nip' => 'nullable|string|max:20',
@@ -207,7 +207,7 @@ class Teacher extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Teacher $teacher, $id)
+    public function destroy(User $teacher, $id)
     {
         $teacher = User::find($id);
 
