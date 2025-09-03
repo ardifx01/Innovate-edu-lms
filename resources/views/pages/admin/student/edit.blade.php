@@ -7,7 +7,7 @@
             <div class="row gx-4">
                 <div class="col-auto">
                     <div class="avatar avatar-xl position-relative">
-                        <img src="{{ $user->profile_picture ? Storage::url($user->profile_picture) : asset('assets/img/team-1.jpg') }}"
+                        <img src="{{ $user->profile_picture ? Storage::url($user->profile_picture) : asset('assets/dashboard/img/team-1.jpg') }}"
                             alt="profile_image" class="w-100 border-radius-lg shadow-sm">
                     </div>
                 </div>
@@ -44,12 +44,12 @@
         <div class="row">
             <div class="col-lg-4 col-md-5">
                 <div class="card card-profile">
-                    <img src="{{ asset('../assets/img/bg-profile.jpg') }}" alt="Image placeholder" class="card-img-top">
+                    <img src="{{ asset('../assets/dashboard/img/bg-profile.jpg') }}" alt="Image placeholder" class="card-img-top">
                     <div class="row justify-content-center">
                         <div class="col-4">
                             <div class="mt-n4 mt-lg-n6 mb-4">
                                 <a href="javascript:;">
-                                    <img src="{{ $student->profile_picture ? asset('storage/' . $student->profile_picture) : asset('../assets/img/team-2.jpg') }}"
+                                    <img src="{{ $student->profile_picture ? asset('storage/' . $student->profile_picture) : asset('../assets/dashboard/img/team-2.jpg') }}"
                                         class="rounded-circle img-fluid border border-2 border-white mb-3"
                                         alt="Profile Picture" style="">
                                 </a>
@@ -293,7 +293,7 @@
                             </div>
                             <div class="mt-4 mt-lg-3 mb-4 text-center">
                                 <a href="javascript:;" class="d-block">
-                                    <img src="{{ $student->profile_picture ? asset('storage/' . $student->profile_picture) : asset('../assets/img/team-2.jpg') }}"
+                                    <img src="{{ $student->profile_picture ? asset('storage/' . $student->profile_picture) : asset('../assets/dashboard/img/team-2.jpg') }}"
                                         class="rounded-circle img-fluid border border-2 border-white mb-3"
                                         alt="Profile Picture" style="width: 150px; height: 150px;"
                                         id="profilePicturePreview">
@@ -303,7 +303,7 @@
                                     <label for="photo" class="form-control-label">Foto Profil</label>
                                     <input class="form-control" type="file" id="photo" name="profile_picture"
                                         accept="image/*"
-                                        onchange="previewImage(event, 'profilePicturePreview', '{{ $student->profile_picture ? asset('storage/' . $student->profile_picture) : asset('../assets/img/team-2.jpg') }}')">
+                                        onchange="previewImage(event, 'profilePicturePreview', '{{ $student->profile_picture ? asset('storage/' . $student->profile_picture) : asset('../assets/dashboard/img/team-2.jpg') }}')">
                                     <small class="form-text text-muted">Biarkan kosong jika tidak ingin mengubah
                                         foto.</small>
                                 </div>
