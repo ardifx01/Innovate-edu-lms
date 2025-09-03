@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Classroom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ClassroomsImport;
 
 class ClassroomController extends Controller
 {
@@ -12,7 +16,16 @@ class ClassroomController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::guard('operator')->user();
+        $classrooms = Classroom::with('homeroomTeacher')->get();
+        return view(
+            'operator::classroom.index',
+
+            compact(
+                'classrooms',
+                'user',
+            )
+        );
     }
 
     /**
@@ -20,7 +33,16 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        $user = Auth::guard('operator')->user();
+        $teachers = User::where('role', 'teacher')->get();
+        return view(
+            'operator::classroom.create',
+
+            compact(
+                'teachers',
+                'user',
+            )
+        );
     }
 
     /**
@@ -28,7 +50,27 @@ class ClassroomController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'class_code' => 'required|unique:classrooms',
+            'class_name' => 'required',
+            'grade_level' => 'required',
+            'homeroom_teacher_id' => 'required|exists:users,id',
+        ]);
+
+        Classroom::create($request->all());
+
+        return redirect()->route('operator.classroom.index')->with('success', 'Classroom created successfully.');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv',
+        ]);
+
+        Excel::import(new ClassroomsImport, $request->file('file'));
+
+        return redirect()->back()->with('success', 'Data kelas berhasil diimpor!');
     }
 
     /**
@@ -58,8 +100,12 @@ class ClassroomController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Classroom $classroom)
+    public function destroy(Classroom $classroom, $id)
     {
-        //
+        $classroom = Classroom::findOrFail($id);
+
+        $classroom->delete();
+
+        return redirect()->route('operator.classroom.index')->with('success', 'Kelas berhasil dihapus.');
     }
 }

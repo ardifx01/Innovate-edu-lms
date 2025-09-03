@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClassroomController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
@@ -57,19 +58,19 @@ Route::group(
         //         // Route::delete('/{id}', 'destroy')->name('destroy');
         // });
 
-        // // Classroom Routes
-        // Route::group([
-        //     'prefix' => 'classroom/',
-        //     'as' => 'classroom.',
-        //     'controller' => ClassroomController::class],
+        // Classroom Routes
+        Route::group([
+            'prefix' => 'classroom/',
+            'as' => 'classroom.',
+            'controller' => ClassroomController::class],
 
-        //     function () {
-        //         Route::get('/', 'index')->name('index');
-        //         Route::get('/create', 'create')->name('create');
-        //         Route::post('/store', 'store')->name('store');
-        //         Route::delete('/{id}', 'destroy')->name('destroy');
-        //         Route::post('/import', 'import')->name('import');
-        // });
+            function () {
+                Route::get('/', 'index')->name('index');
+                Route::get('/create', 'create')->name('create');
+                Route::post('/store', 'store')->name('store');
+                Route::delete('/{id}', 'destroy')->name('destroy');
+                Route::post('/import', 'import')->name('import');
+        });
 
         // Teacher Routes
         Route::group(
